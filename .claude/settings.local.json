@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(command -v gh git node npm supabase)",
+      "Bash(gh auth *)",
+      "Read(//Users/bryanbleak/.ssh/**)",
+      "Bash(ssh-keygen -t ed25519 -C \"commonplace\" -f ~/.ssh/id_ed25519_commonplace -N \"\" -q)"
+    ]
+  }
+}

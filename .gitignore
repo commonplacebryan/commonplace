@@ -1,0 +1,25 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Captured audio and transcripts — personal use only, never committed
+data/
+*.mp3
+*.wav
+*.m4a
+transcripts/
+
+# Python
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+.vercel/
+
+# macOS
+.DS_Store

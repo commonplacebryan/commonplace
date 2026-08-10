@@ -1,0 +1,15 @@
+{
+  "$comment": "Controlled theme vocabulary (spec §7). Tagging rejects anything off-list. Additions are schema changes, not casual edits — the same tags are the call-analysis coaching rubric.",
+  "prospecting": ["cold_calling", "email_outreach", "social_selling"],
+  "discovery": ["questioning_technique", "buyer_psychology", "needs_analysis"],
+  "qualification": ["pain_identification", "budget_authority", "deal_qualification"],
+  "objections": ["objection_handling", "rejection_resilience", "indecision"],
+  "negotiation": ["pricing_defense", "discounting", "concession_strategy"],
+  "closing": ["commitment_gaining", "next_step_securing", "urgency_creation"],
+  "pipeline": ["forecasting", "pipeline_inspection", "deal_review", "territory_planning"],
+  "management": ["coaching", "one_on_ones", "performance_feedback", "difficult_conversations"],
+  "hiring": ["scorecard_definition", "structured_interview", "candidate_evaluation", "onboarding"],
+  "metrics": ["activity_metrics", "comp_design", "sales_process"],
+  "leadership": ["team_culture", "delegation", "decision_making"],
+  "self": ["mindset", "time_management", "habit_formation"]
+}
