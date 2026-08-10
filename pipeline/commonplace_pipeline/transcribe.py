@@ -13,6 +13,8 @@ from pathlib import Path
 
 MODEL = "mlx-community/whisper-large-v3-turbo"
 AUDIO_EXTS = {".mp3", ".m4a", ".wav"}
+# Repo root, so output lands in the same place regardless of cwd
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def transcribe_file(audio: Path, out_dir: Path) -> Path:
@@ -43,9 +45,9 @@ def transcribe_file(audio: Path, out_dir: Path) -> Path:
     return out_path
 
 
-def run(path: str, out_dir: str = "data/transcripts") -> None:
+def run(path: str, out_dir: str | None = None) -> None:
     src = Path(path).expanduser()
-    out = Path(out_dir)
+    out = Path(out_dir) if out_dir else ROOT / "data" / "transcripts"
     out.mkdir(parents=True, exist_ok=True)
     files = (
         sorted(p for p in src.iterdir() if p.suffix.lower() in AUDIO_EXTS)
