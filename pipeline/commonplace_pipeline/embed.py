@@ -14,12 +14,31 @@ from .transcribe import ROOT
 
 MODEL = "voyage-3.5-lite"
 DIMS = 1024
-# Sized for Voyage's no-payment-method tier (3 RPM / 10K TPM): 8 chunks
-# of ~600 words is ~7K tokens per request. With a payment method on file
-# (free tokens still apply), BATCH=128 and PAUSE_S=0 are fine.
-BATCH = 8
+# Sized for Voyage's no-payment-method tier (3 RPM / 10K TPM). Batches are
+# built by estimated token count, not chunk count — a fixed-count batch of
+# long chunks can exceed 10K tokens and then no amount of waiting helps.
+# With a payment method on file (free tokens still apply), raise
+# TOKEN_BUDGET and drop PAUSE_S.
+TOKEN_BUDGET = 5500
+TOKENS_PER_WORD = 1.5  # conservative estimate
 PAUSE_S = 45
 MAX_RETRIES = 6
+
+
+def token_batches(chunks: list[dict]) -> list[list[dict]]:
+    batches: list[list[dict]] = []
+    cur: list[dict] = []
+    cur_tokens = 0.0
+    for c in chunks:
+        est = len(c["text"].split()) * TOKENS_PER_WORD
+        if cur and cur_tokens + est > TOKEN_BUDGET:
+            batches.append(cur)
+            cur, cur_tokens = [], 0.0
+        cur.append(c)
+        cur_tokens += est
+    if cur:
+        batches.append(cur)
+    return batches
 
 
 def run(tagged_path: str) -> None:
@@ -43,10 +62,8 @@ def run(tagged_path: str) -> None:
     chunks = data["chunks"]
     client = voyageai.Client()
 
-    for i in range(0, len(chunks), BATCH):
-        batch = [c for c in chunks[i : i + BATCH] if not c.get("embedding")]
-        if not batch:
-            continue
+    todo = [c for c in chunks if not c.get("embedding")]
+    for batch in token_batches(todo):
         for attempt in range(MAX_RETRIES):
             try:
                 result = client.embed(
