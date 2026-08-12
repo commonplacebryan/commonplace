@@ -245,11 +245,14 @@ West, Abundance, Oath and Honor, Peril, Romney, Enough) · misc narrative
 (Killers of the Flower Moon, Educated, Becoming, Just Mercy, The Warmth of
 Other Suns, Caste, Midnight in Chernobyl…)
 
-### 20. faith (~25)
+### 20. faith (~25) — CONFIRMED IN (2026-08-12)
 The LDS cluster (Callister, Bednar, Dew, Nelson, Holland, Madsen, Bushman's
 Rough Stone Rolling, Saints, etc.) plus Paul: A Biography, Seeking Allah
 Finding Jesus, Tattoos on the Heart, The Ruthless Elimination of Hurry.
-**Open question: include in the corpus at all?** Separate domain if so.
+Its own hard-partitioned domain: never surfaces in sales/business queries,
+fully queryable on its own. Will need its own theme vocabulary block when
+first processed (doctrine, discipleship, scripture study, family, service,
+etc. — draft when the first faith title is ingested).
 
 ---
 
