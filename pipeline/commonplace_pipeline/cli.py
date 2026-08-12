@@ -25,6 +25,13 @@ def main() -> None:
     parser.add_argument("path", help="Input file or directory for the stage")
     parser.add_argument("--slug", help="Book slug, e.g. 'freemium' (stitch/chunk)")
     parser.add_argument("--title", help="Book title for stitch")
+    parser.add_argument("--author", help="Book author (load)")
+    parser.add_argument("--year", type=int, help="Publication year (load)")
+    parser.add_argument("--domain", help="Domain partition (load)")
+    parser.add_argument("--tier", default="standard",
+                        choices=["canon", "standard", "archive"])
+    parser.add_argument("--source-type", default="audio",
+                        choices=["audio", "kindle_highlights", "epub", "manual"])
     args = parser.parse_args()
     if args.stage == "transcribe":
         transcribe.run(args.path)
@@ -37,9 +44,26 @@ def main() -> None:
     if args.stage == "chunk":
         chunk.run(args.path)
         return
-    # Remaining stages arrive one at a time, validated against real output
-    # before the next is written (spec §11 — verify file one, not file twelve).
-    print(f"stage '{args.stage}' not implemented yet", file=sys.stderr)
+    if args.stage == "tag":
+        from . import tag
+        tag.run(args.path)
+        return
+    if args.stage == "summarize":
+        from . import summarize
+        summarize.run(args.path)
+        return
+    if args.stage == "embed":
+        from . import embed
+        embed.run(args.path)
+        return
+    if args.stage == "load":
+        if not (args.author and args.year and args.domain):
+            parser.error("load requires --author, --year, and --domain")
+        from . import load
+        load.run(args.path, args.author, args.year, args.domain,
+                 args.tier, args.source_type)
+        return
+    print(f"unknown stage '{args.stage}'", file=sys.stderr)
     sys.exit(1)
 
 
