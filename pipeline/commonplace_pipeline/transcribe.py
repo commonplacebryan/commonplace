@@ -34,6 +34,9 @@ def transcribe_file(audio: Path, out_dir: Path) -> Path:
             "--language", "en",
             "--output-dir", str(out_dir),
             "--verbose", "False",
+            # Prevent repetition-loop hallucinations on table-like narration:
+            # never condition a segment on the previous segment's output
+            "--condition-on-previous-text", "False",
         ],
         check=True,
     )
