@@ -14,10 +14,10 @@ from .transcribe import ROOT
 
 MODEL = "voyage-3.5-lite"
 DIMS = 1024
-# Sized for Voyage's no-payment-method tier (3 RPM / 10K TPM): ~12 chunks
-# of ~600 words stay under 10K tokens per request. With a payment method
-# on file (free tokens still apply), BATCH=128 and PAUSE_S=0 are fine.
-BATCH = 12
+# Sized for Voyage's no-payment-method tier (3 RPM / 10K TPM): 8 chunks
+# of ~600 words is ~7K tokens per request. With a payment method on file
+# (free tokens still apply), BATCH=128 and PAUSE_S=0 are fine.
+BATCH = 8
 PAUSE_S = 21
 MAX_RETRIES = 5
 
