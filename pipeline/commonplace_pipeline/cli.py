@@ -24,6 +24,7 @@ def main() -> None:
     parser.add_argument("stage", choices=STAGES)
     parser.add_argument("path", help="Input file or directory for the stage")
     parser.add_argument("--slug", help="Book slug, e.g. 'freemium' (stitch/chunk)")
+    parser.add_argument("--out-dir", help="Output directory override (transcribe)")
     parser.add_argument("--title", help="Book title for stitch")
     parser.add_argument("--author", help="Book author (load)")
     parser.add_argument("--year", type=int, help="Publication year (load)")
@@ -34,7 +35,7 @@ def main() -> None:
                         choices=["audio", "kindle_highlights", "epub", "manual"])
     args = parser.parse_args()
     if args.stage == "transcribe":
-        transcribe.run(args.path)
+        transcribe.run(args.path, args.out_dir)
         return
     if args.stage == "stitch":
         if not (args.slug and args.title):
