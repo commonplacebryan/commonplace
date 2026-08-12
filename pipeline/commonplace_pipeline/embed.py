@@ -18,8 +18,8 @@ DIMS = 1024
 # of ~600 words is ~7K tokens per request. With a payment method on file
 # (free tokens still apply), BATCH=128 and PAUSE_S=0 are fine.
 BATCH = 8
-PAUSE_S = 21
-MAX_RETRIES = 5
+PAUSE_S = 45
+MAX_RETRIES = 6
 
 
 def run(tagged_path: str) -> None:
@@ -33,11 +33,20 @@ def run(tagged_path: str) -> None:
     path = Path(tagged_path).expanduser()
     with open(path) as f:
         data = json.load(f)
+    out_path = path.parent / f"{data['slug']}.final.json"
+    if out_path.exists():
+        # Resume: keep embeddings already written by an interrupted run
+        with open(out_path) as f:
+            data = json.load(f)
+        done = sum(1 for c in data["chunks"] if c.get("embedding"))
+        print(f"resuming — {done} chunks already embedded")
     chunks = data["chunks"]
     client = voyageai.Client()
 
     for i in range(0, len(chunks), BATCH):
-        batch = chunks[i : i + BATCH]
+        batch = [c for c in chunks[i : i + BATCH] if not c.get("embedding")]
+        if not batch:
+            continue
         for attempt in range(MAX_RETRIES):
             try:
                 result = client.embed(
@@ -55,11 +64,11 @@ def run(tagged_path: str) -> None:
             raise SystemExit(f"rate limited {MAX_RETRIES} times at chunk {i}")
         for c, emb in zip(batch, result.embeddings):
             c["embedding"] = emb
-        print(f"embedded {min(i + BATCH, len(chunks))}/{len(chunks)}")
-        if i + BATCH < len(chunks):
+        with open(out_path, "w") as f:
+            json.dump(data, f)
+        done = sum(1 for c in chunks if c.get("embedding"))
+        print(f"embedded {done}/{len(chunks)}")
+        if done < len(chunks):
             time.sleep(PAUSE_S)
 
-    out_path = path.parent / f"{data['slug']}.final.json"
-    with open(out_path, "w") as f:
-        json.dump(data, f)
     print(f"{out_path.name}: {len(chunks)} chunks @ {DIMS} dims")
