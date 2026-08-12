@@ -23,9 +23,11 @@ def transcribe_file(audio: Path, out_dir: Path) -> Path:
         print(f"skip (exists): {out_path.name}")
         return out_path
     print(f"transcribing: {audio.name}")
+    # Resolve from this interpreter's venv — bare name requires PATH setup
+    mlx_whisper = Path(sys.executable).parent / "mlx_whisper"
     subprocess.run(
         [
-            "mlx_whisper", str(audio),
+            str(mlx_whisper), str(audio),
             "--model", MODEL,
             "--output-format", "json",
             "--word-timestamps", "True",
