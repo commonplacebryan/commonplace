@@ -70,7 +70,7 @@ def run(tagged_path: str) -> None:
         max_tokens=1200,
         messages=[{"role": "user", "content": prompt}],
     )
-    text = resp.content[0].text.strip()
+    text = next(b.text for b in resp.content if b.type == "text").strip()
     if text.startswith("```"):
         text = text.strip("`").removeprefix("json").strip()
     meta = json.loads(text)

@@ -57,7 +57,7 @@ def tag_batch(client, vocab: set[str], batch: list[dict]) -> list[dict]:
         ],
         messages=[{"role": "user", "content": numbered}],
     )
-    text = resp.content[0].text.strip()
+    text = next(b.text for b in resp.content if b.type == "text").strip()
     if text.startswith("```"):
         text = text.strip("`").removeprefix("json").strip()
     results = {r["seq"]: r for r in json.loads(text)}
