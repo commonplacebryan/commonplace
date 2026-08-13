@@ -73,9 +73,13 @@ def run(tagged_path: str) -> None:
                     output_dimension=DIMS,
                 )
                 break
-            except voyageai.error.RateLimitError:
+            except (
+                voyageai.error.RateLimitError,
+                voyageai.error.APIConnectionError,
+                voyageai.error.ServiceUnavailableError,
+            ) as e:
                 wait = PAUSE_S * (attempt + 1)
-                print(f"  rate limited, waiting {wait}s")
+                print(f"  {type(e).__name__}, waiting {wait}s")
                 time.sleep(wait)
         else:
             raise SystemExit(f"rate limited {MAX_RETRIES} times at chunk {i}")
