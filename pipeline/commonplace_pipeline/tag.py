@@ -24,14 +24,26 @@ def load_vocab() -> list[str]:
     )
 
 
+def vocab_block() -> str:
+    """Render 'theme — gloss' lines so the model tags by intended meaning,
+    not by how a bare theme name happens to read (e.g. 'positioning')."""
+    with open(ROOT / "vocab" / "themes.json") as f:
+        vocab = json.load(f)
+    glosses = vocab.get("$glosses", {})
+    return "\n".join(f"{t} — {glosses[t]}" if t in glosses else t
+                     for t in load_vocab())
+
+
 SYSTEM = """You tag chunks of transcribed business audiobooks.
 
 For each numbered chunk, return 1-3 themes from the ALLOWED THEMES list and
 a one-line summary (max 20 words) of what the chunk actually says.
 
 Rules:
-- Themes MUST be copied exactly from the allowed list. Never invent,
-  rephrase, or pluralize a theme.
+- Themes MUST be copied exactly from the allowed list (the identifier
+  before the dash). Never invent, rephrase, or pluralize a theme.
+- Apply a theme only when the chunk matches its gloss (the text after
+  the dash), not merely because the theme's name appears in the text.
 - If no theme genuinely fits, return an empty themes list rather than
   forcing a bad match.
 - Respond with ONLY a JSON array, one object per chunk, in input order:
@@ -51,7 +63,7 @@ def tag_batch(client, vocab: set[str], batch: list[dict]) -> list[dict]:
         system=[
             {
                 "type": "text",
-                "text": SYSTEM + "\n".join(sorted(vocab)),
+                "text": SYSTEM + vocab_block(),
                 "cache_control": {"type": "ephemeral"},
             }
         ],
