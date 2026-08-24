@@ -65,15 +65,23 @@ def run(tagged_path: str) -> None:
         outline=outline,
     )
     client = Anthropic()
-    resp = client.messages.create(
-        model=MODEL,
-        max_tokens=1200,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    text = next(b.text for b in resp.content if b.type == "text").strip()
-    if text.startswith("```"):
-        text = text.strip("`").removeprefix("json").strip()
-    meta = json.loads(text)
+    meta = None
+    for attempt in range(3):
+        resp = client.messages.create(
+            model=MODEL,
+            max_tokens=1200,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        text = next(b.text for b in resp.content if b.type == "text").strip()
+        if text.startswith("```"):
+            text = text.strip("`").removeprefix("json").strip()
+        try:
+            meta = json.loads(text)
+            break
+        except json.JSONDecodeError as e:
+            print(f"  malformed JSON from model (attempt {attempt + 1}): {e}")
+    if meta is None:
+        raise SystemExit("summarize: model returned malformed JSON 3 times")
     assert meta["stance"] in {"consultative", "volume", "research", "motivational"}
     assert meta["evidence"] in {"data-backed", "practitioner", "anecdotal"}
 
