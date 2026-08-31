@@ -1,0 +1,79 @@
+# Capture log
+
+Source of truth for loaded books is the database; this ledger adds capture
+notes and pending work. Update when books load.
+
+## Loaded (31 books, ~4,140 chunks — as of 2026-08-31)
+
+| # | Title | Author | Year | Domain | Chunks | Notes |
+|---|-------|--------|------|--------|--------|-------|
+| 1 | Freemium | Dave Boyce | 2024 | marketing_gtm | 151 | first book; proved the loop |
+| 2 | The Sales Acceleration Formula | Mark Roberge | 2015 | sales_management | 90 | |
+| 3 | The Qualified Sales Leader | John McMahon | 2021 | sales_management | 138 | |
+| 4 | Cracking the Sales Management Code | Jordan & Vazzana | 2012 | sales_management | 113 | |
+| 5 | The Challenger Sale | Dixon & Adamson | 2011 | sales | 105 | |
+| 6 | Gap Selling | Keenan | 2018 | sales | 117 | |
+| 7 | Who: The A Method for Hiring | Smart & Street | 2008 | leadership | 76 | |
+| 8 | Fanatical Prospecting | Jeb Blount | 2015 | sales | 148 | |
+| 9 | Never Split the Difference | Chris Voss | 2016 | sales | 141 | |
+| 10 | Crucial Conversations (3rd ed) | Grenny et al. | 2021 | leadership | 134 | |
+| 11 | High Output Management | Andy Grove | 1983 | leadership | 125 | |
+| 12 | Exactly What to Say | Phil M. Jones | 2017 | sales | 23 | shortest book |
+| 13 | Sales EQ | Jeb Blount | 2017 | sales | 235 | spliced from 2 captures (Audible position bug) |
+| 14 | Good to Great | Jim Collins | 2001 | leadership | 153 | |
+| 15 | The Sales Development Playbook | Trish Bertuzzi | 2016 | sales_management | 115 | |
+| 16 | Obviously Awesome | April Dunford | 2019 | marketing_gtm | 55 | |
+| 17 | Cold Calling Sucks | Farrokh & Cegelski | 2024 | sales | 81 | |
+| 18 | Multipliers | Liz Wiseman | 2010 | leadership | 172 | |
+| 19 | Pitch Anything | Oren Klaff | 2011 | sales | 115 | |
+| 20 | The First 90 Days | Michael D. Watkins | 2003 | leadership | 108 | |
+| 21 | Coaching Salespeople into Sales Champions | Keith Rosen | 2008 | sales_management | 187 | |
+| 22 | SPIN Selling | Neil Rackham | 1988 | sales | 111 | |
+| 23 | Amp It Up | Frank Slootman | 2022 | sales_management | 87 | missing first ~seconds (late session start); optional patch |
+| 24 | The Challenger Customer | Adamson, Dixon, et al. | 2015 | sales | 123 | |
+| 25 | Crossing the Chasm | Geoffrey A. Moore | 1991 | marketing_gtm | 135 | |
+| 26 | Extreme Ownership | Willink & Babin | 2015 | leadership | 126 | |
+| 27 | The JOLT Effect | Dixon & McKenna | 2022 | sales | 104 | missing first seconds (dual-narrator front matter) |
+| 28 | Influence (New & Expanded) | Robert B. Cialdini | 2021 | sales | 249 | author-read, ~21h, largest book |
+| 29 | $100M Leads | Alex Hormozi | 2023 | sales | 136 | |
+| 30 | Supercommunicators | Charles Duhigg | 2024 | leadership | 124 | |
+| 31 | Turn the Ship Around! | L. David Marquet | 2012 | leadership | 120 | |
+
+## PENDING — unprocessed captures on disk (as of 2026-08-31)
+
+Everything in `~/Music/Audio Hijack` after `App Recording 20260825 1424.mp3`
+is captured but NOT yet transcribed/loaded. Known: the session starting
+`20260825 1501` is **The Effective Executive** (Drucker, 50th-anniv ed,
+Collins foreword — leadership). Multiple further sessions Aug 25–31 need a
+sweep: group by minute signature, identify via head/tail samples, run the
+runbook in CLAUDE.md.
+
+## Other pending
+
+- **Radical Candor**: re-capture from the beginning (Bryan's choice — no
+  splice). Obsolete partial: `data/transcripts/radical-candor-partial` +
+  mp3s `20260814 2153/2253/2353` — delete after fresh capture loads.
+- **Queue**: next ~21 books listed in chat 2026-08-25 (Objections, Ideal
+  Team Player, Anatomy of Peace, Made to Stick, $100M Offers, Lean Startup,
+  Zero to One, Mom Test, Hard Thing, Measure What Matters, Innovator's
+  Dilemma, Competing Against Luck, Thinking in Bets, Decisive, Start with
+  Why, No Rules Rules, Leadership & Self-Deception, Next Conversation,
+  Atomic Habits, Deep Work, Outward Mindset) — see also
+  `docs/library-triage.md` for the full 250-book plan.
+- **`~/Music/Audio Hijack/autoplay-overflow/`**: quarantined files from the
+  first night's autoplay accident — contains a partial Four Steps to the
+  Epiphany (owned; potentially usable someday) — plus an Audible Original.
+- Canon-tier promotions not yet made (⭐ candidates in library-triage.md).
+- Phase 5 (`analyze_transcript` call analysis) not started.
+
+## Vocabulary history
+
+- v1 (39 themes) shipped with book 1.
+- v2 (2026-08-21, 45 themes): retired `sales_process` (had become a 25%
+  catch-all across 9/10 books) → `sales_methodology` / `funnel_design` /
+  `process_management`; split `onboarding` → `rep_onboarding` +
+  `customer_onboarding`; added `marketing_gtm` block; dropped unused
+  `discounting`. All books re-tagged; embeddings preserved.
+- Glosses added 2026-08-21 after `positioning` over-applied (417 chunks
+  corpus-wide → 9 on the first glossed book). Books 1–19 were tagged
+  pre-gloss; re-tag only if positioning noise shows up in real queries.
