@@ -3,7 +3,34 @@
 Source of truth for loaded books is the database; this ledger adds capture
 notes and pending work. Update when books load.
 
-## Loaded (31 books, ~4,140 chunks — as of 2026-08-31)
+## Loaded (42 books, 5,338 chunks — as of 2026-08-31 late night)
+
+Books 32–42 (loaded 2026-08-31 overnight batch):
+
+| # | Title | Author | Year | Domain | Chunks | Notes |
+|---|-------|--------|------|--------|--------|-------|
+| 32 | No Rules Rules | Hastings & Meyer | 2020 | leadership | 147 | |
+| 33 | Decisive | Heath & Heath | 2013 | decision_judgment | 151 | new domain |
+| 34 | The Lean Startup | Eric Ries | 2011 | entrepreneurship | 143 | new domain |
+| 35 | Made to Stick | Heath & Heath | 2007 | marketing_gtm | 134 | |
+| 36 | Thinking in Bets | Annie Duke | 2018 | decision_judgment | 118 | |
+| 37 | The Innovator's Dilemma | Clayton Christensen | 1997 | product | 124 | new domain |
+| 38 | The Ideal Team Player | Patrick Lencioni | 2016 | leadership | 80 | |
+| 39 | The Hard Thing About Hard Things | Ben Horowitz | 2014 | entrepreneurship | 137 | |
+| 40 | Measure What Matters | John Doerr | 2018 | leadership | 124 | |
+| 41 | Deep Work | Cal Newport | 2016 | self | 111 | new domain |
+| 42 | Radical Candor | Kim Scott | 2019 | leadership | ~150 | 2 sessions, zero-gap seam — no splice needed |
+
+**The Effective Executive** (Drucker, `20260825 1501` series, verified
+complete) is in the pipeline now → book 43.
+**Objections** (Blount, `20260831 0849` series) is INCOMPLETE — Audible
+silent-stop cut it mid-sentence at ~4h33m ("...effective discovery.
+Discovery"); final ~1h needs re-capture, then splice like Sales EQ.
+**Start with Why** capturing overnight Aug 31 → Sep 1 (`20260831 2234`
+series). Ghost files `20260831 1808/1908/2008/2108/2208` (near-silent,
+post-Objections session left running) are junk — delete on Bryan's OK.
+
+## Previously loaded (books 1–31, as of 2026-08-31 morning)
 
 | # | Title | Author | Year | Domain | Chunks | Notes |
 |---|-------|--------|------|--------|--------|-------|
