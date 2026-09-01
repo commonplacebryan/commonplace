@@ -19,8 +19,7 @@ Books 32–42 (loaded 2026-08-31 overnight batch):
 | 39 | The Hard Thing About Hard Things | Ben Horowitz | 2014 | entrepreneurship | 137 | |
 | 40 | Measure What Matters | John Doerr | 2018 | leadership | 124 | |
 | 41 | Deep Work | Cal Newport | 2016 | self | 111 | new domain |
-| 42 | Radical Candor | Kim Scott | 2019 | leadership | ~150 | 2 sessions, zero-gap seam — no splice needed |
-
+| 42 | Radical Candor | Kim Scott | 2019 | leadership | 172 | 2 sessions, zero-gap seam — no splice needed |
 | 43 | The Effective Executive | Peter F. Drucker | 1967 | leadership | 113 | loaded 2026-09-01 |
 
 **Objections** (Blount, `20260831 0849` series) is INCOMPLETE — Audible
@@ -66,20 +65,10 @@ post-Objections session left running) are junk — delete on Bryan's OK.
 | 30 | Supercommunicators | Charles Duhigg | 2024 | leadership | 124 | |
 | 31 | Turn the Ship Around! | L. David Marquet | 2012 | leadership | 120 | |
 
-## PENDING — unprocessed captures on disk (as of 2026-08-31)
-
-Everything in `~/Music/Audio Hijack` after `App Recording 20260825 1424.mp3`
-is captured but NOT yet transcribed/loaded. Known: the session starting
-`20260825 1501` is **The Effective Executive** (Drucker, 50th-anniv ed,
-Collins foreword — leadership). Multiple further sessions Aug 25–31 need a
-sweep: group by minute signature, identify via head/tail samples, run the
-runbook in CLAUDE.md.
-
 ## Other pending
 
-- **Radical Candor**: re-capture from the beginning (Bryan's choice — no
-  splice). Obsolete partial: `data/transcripts/radical-candor-partial` +
-  mp3s `20260814 2153/2253/2353` — delete after fresh capture loads.
+- Radical Candor loaded (book 42) — obsolete partial can now be deleted:
+  `data/transcripts/radical-candor-partial` + mp3s `20260814 2153/2253/2353`.
 - **Queue**: next ~21 books listed in chat 2026-08-25 (Objections, Ideal
   Team Player, Anatomy of Peace, Made to Stick, $100M Offers, Lean Startup,
   Zero to One, Mom Test, Hard Thing, Measure What Matters, Innovator's
