@@ -3,7 +3,7 @@
 Source of truth for loaded books is the database; this ledger adds capture
 notes and pending work. Update when books load.
 
-## Loaded (42 books, 5,338 chunks — as of 2026-08-31 late night)
+## Loaded (43 books, 5,451 chunks — as of 2026-09-01)
 
 Books 32–42 (loaded 2026-08-31 overnight batch):
 
@@ -21,8 +21,8 @@ Books 32–42 (loaded 2026-08-31 overnight batch):
 | 41 | Deep Work | Cal Newport | 2016 | self | 111 | new domain |
 | 42 | Radical Candor | Kim Scott | 2019 | leadership | ~150 | 2 sessions, zero-gap seam — no splice needed |
 
-**The Effective Executive** (Drucker, `20260825 1501` series, verified
-complete) is in the pipeline now → book 43.
+| 43 | The Effective Executive | Peter F. Drucker | 1967 | leadership | 113 | loaded 2026-09-01 |
+
 **Objections** (Blount, `20260831 0849` series) is INCOMPLETE — Audible
 silent-stop cut it mid-sentence at ~4h33m ("...effective discovery.
 Discovery"); final ~1h needs re-capture, then splice like Sales EQ.
