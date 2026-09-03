@@ -3,7 +3,7 @@
 Source of truth for loaded books is the database; this ledger adds capture
 notes and pending work. Update when books load.
 
-## Loaded (43 books, 5,451 chunks — as of 2026-09-01)
+## Loaded (47 books, 5,916 chunks — as of 2026-09-03)
 
 Books 32–42 (loaded 2026-08-31 overnight batch):
 
@@ -21,13 +21,20 @@ Books 32–42 (loaded 2026-08-31 overnight batch):
 | 41 | Deep Work | Cal Newport | 2016 | self | 111 | new domain |
 | 42 | Radical Candor | Kim Scott | 2019 | leadership | 172 | 2 sessions, zero-gap seam — no splice needed |
 | 43 | The Effective Executive | Peter F. Drucker | 1967 | leadership | 113 | loaded 2026-09-01 |
+| 44 | Start with Why | Simon Sinek | 2009 | leadership | 131 | loaded 2026-09-03 |
+| 45 | The Next Conversation | Jefferson Fisher | 2025 | leadership | 108 | loaded 2026-09-03 |
+| 46 | The Anatomy of Peace | The Arbinger Institute | 2006 | leadership | 112 | loaded 2026-09-03; retired-edition, fixed via web re-sync |
+| 47 | Atomic Habits | James Clear | 2018 | self | 114 | loaded 2026-09-03 |
 
 **Objections** (Blount, `20260831 0849` series) is INCOMPLETE — Audible
 silent-stop cut it mid-sentence at ~4h33m ("...effective discovery.
 Discovery"); final ~1h needs re-capture, then splice like Sales EQ.
-**Start with Why** capturing overnight Aug 31 → Sep 1 (`20260831 2234`
-series). Ghost files `20260831 1808/1908/2008/2108/2208` (near-silent,
-post-Objections session left running) are junk — delete on Bryan's OK.
+**Objections** (Blount) still needs its final ~1h re-captured (Audible
+silent-stop at ~4h33m), then splice. **Leadership & Self-Deception**
+recorded fully silent Sep 2→3 (retired-edition license lapsed again mid-
+session; web re-sync didn't hold) — needs Audible support edition-swap,
+then re-capture with a meter-check before committing. Ghost files all
+deleted 2026-09-03.
 
 ## Previously loaded (books 1–31, as of 2026-08-31 morning)
 
