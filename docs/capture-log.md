@@ -29,8 +29,7 @@ Books 32–42 (loaded 2026-08-31 overnight batch):
 **Objections** (Blount, `20260831 0849` series) is INCOMPLETE — Audible
 silent-stop cut it mid-sentence at ~4h33m ("...effective discovery.
 Discovery"); final ~1h needs re-capture, then splice like Sales EQ.
-**Objections** (Blount) still needs its final ~1h re-captured (Audible
-silent-stop at ~4h33m), then splice. **Leadership & Self-Deception**
+**Leadership & Self-Deception**
 recorded fully silent Sep 2→3 (retired-edition license lapsed again mid-
 session; web re-sync didn't hold) — needs Audible support edition-swap,
 then re-capture with a meter-check before committing. Ghost files all
