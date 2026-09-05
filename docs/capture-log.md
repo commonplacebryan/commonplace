@@ -3,7 +3,7 @@
 Source of truth for loaded books is the database; this ledger adds capture
 notes and pending work. Update when books load.
 
-## Loaded (47 books, 5,916 chunks — as of 2026-09-03)
+## Loaded (50 books, 6,169 chunks — as of 2026-09-04)
 
 Books 32–42 (loaded 2026-08-31 overnight batch):
 
@@ -25,15 +25,15 @@ Books 32–42 (loaded 2026-08-31 overnight batch):
 | 45 | The Next Conversation | Jefferson Fisher | 2025 | leadership | 108 | loaded 2026-09-03 |
 | 46 | The Anatomy of Peace | The Arbinger Institute | 2006 | leadership | 112 | loaded 2026-09-03; retired-edition, fixed via web re-sync |
 | 47 | Atomic Habits | James Clear | 2018 | self | 114 | loaded 2026-09-03 |
+| 48 | Zero to One | Peter Thiel & Blake Masters | 2014 | entrepreneurship | 81 | loaded 2026-09-04 |
+| 49 | The Outward Mindset | The Arbinger Institute | 2016 | leadership | 72 | loaded 2026-09-04; completes Arbinger trilogy |
+| 50 | Objections | Jeb Blount | 2018 | sales | 100 | loaded 2026-09-04; full re-record after Audible silent-stop |
 
-**Objections** (Blount, `20260831 0849` series) is INCOMPLETE — Audible
-silent-stop cut it mid-sentence at ~4h33m ("...effective discovery.
-Discovery"); final ~1h needs re-capture, then splice like Sales EQ.
 **Leadership & Self-Deception**
-recorded fully silent Sep 2→3 (retired-edition license lapsed again mid-
-session; web re-sync didn't hold) — needs Audible support edition-swap,
-then re-capture with a meter-check before committing. Ghost files all
-deleted 2026-09-03.
+recorded fully silent Sep 2→3 (retired-edition license lapsed). Bryan
+removed it from his library 2026-09-04 to sort out later — PARKED, revisit
+when the edition works. The Mom Test (Fitzpatrick) capturing 2026-09-04
+evening → book 51.
 
 ## Previously loaded (books 1–31, as of 2026-08-31 morning)
 
