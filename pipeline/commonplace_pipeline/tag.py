@@ -16,25 +16,34 @@ MODEL = "claude-haiku-4-5-20251001"
 BATCH = 10
 
 
-def load_vocab() -> list[str]:
-    with open(ROOT / "vocab" / "themes.json") as f:
+def vocab_path(name: str) -> Path:
+    # "themes" -> vocab/themes.json ; "faith" -> vocab/themes-faith.json
+    fname = "themes.json" if name == "themes" else f"themes-{name}.json"
+    p = ROOT / "vocab" / fname
+    if not p.exists():
+        raise SystemExit(f"vocab file not found: {p}")
+    return p
+
+
+def load_vocab(name: str = "themes") -> list[str]:
+    with open(vocab_path(name)) as f:
         vocab = json.load(f)
     return sorted(
         t for k, themes in vocab.items() if not k.startswith("$") for t in themes
     )
 
 
-def vocab_block() -> str:
+def vocab_block(name: str = "themes") -> str:
     """Render 'theme — gloss' lines so the model tags by intended meaning,
     not by how a bare theme name happens to read (e.g. 'positioning')."""
-    with open(ROOT / "vocab" / "themes.json") as f:
+    with open(vocab_path(name)) as f:
         vocab = json.load(f)
     glosses = vocab.get("$glosses", {})
     return "\n".join(f"{t} — {glosses[t]}" if t in glosses else t
-                     for t in load_vocab())
+                     for t in load_vocab(name))
 
 
-SYSTEM = """You tag chunks of transcribed business audiobooks.
+SYSTEM = """You tag chunks of transcribed nonfiction audiobooks.
 
 For each numbered chunk, return 1-3 themes from the ALLOWED THEMES list and
 a one-line summary (max 20 words) of what the chunk actually says.
@@ -53,7 +62,7 @@ ALLOWED THEMES:
 """
 
 
-def tag_batch(client, vocab: set[str], batch: list[dict]) -> list[dict]:
+def tag_batch(client, vocab: set[str], batch: list[dict], block: str) -> list[dict]:
     numbered = "\n\n".join(
         f"[chunk {c['seq']}]\n{c['text']}" for c in batch
     )
@@ -63,7 +72,7 @@ def tag_batch(client, vocab: set[str], batch: list[dict]) -> list[dict]:
         system=[
             {
                 "type": "text",
-                "text": SYSTEM + vocab_block(),
+                "text": SYSTEM + block,
                 "cache_control": {"type": "ephemeral"},
             }
         ],
@@ -84,7 +93,7 @@ def tag_batch(client, vocab: set[str], batch: list[dict]) -> list[dict]:
     return out
 
 
-def run(chunks_path: str) -> None:
+def run(chunks_path: str, vocab_name: str = "themes") -> None:
     from anthropic import Anthropic
     from dotenv import load_dotenv
 
@@ -97,12 +106,14 @@ def run(chunks_path: str) -> None:
         data = json.load(f)
     chunks = data["chunks"]
     client = Anthropic()
-    vocab = set(load_vocab())
+    vocab = set(load_vocab(vocab_name))
+    block = vocab_block(vocab_name)
+    print(f"tagging with '{vocab_name}' vocabulary ({len(vocab)} themes)")
 
     tagged = []
     for i in range(0, len(chunks), BATCH):
         batch = chunks[i : i + BATCH]
-        tagged.extend(tag_batch(client, vocab, batch))
+        tagged.extend(tag_batch(client, vocab, batch, block))
         print(f"tagged {len(tagged)}/{len(chunks)}")
 
     out_path = path.parent / f"{data['slug']}.tagged.json"

@@ -33,6 +33,9 @@ def main() -> None:
                         choices=["canon", "standard", "archive"])
     parser.add_argument("--source-type", default="audio",
                         choices=["audio", "kindle_highlights", "epub", "manual"])
+    parser.add_argument("--vocab", default="themes",
+                        help="Theme vocabulary for tagging: 'themes' (business, "
+                             "default) or 'faith' -> vocab/themes-faith.json")
     args = parser.parse_args()
     if args.stage == "transcribe":
         transcribe.run(args.path, args.out_dir)
@@ -47,7 +50,7 @@ def main() -> None:
         return
     if args.stage == "tag":
         from . import tag
-        tag.run(args.path)
+        tag.run(args.path, args.vocab)
         return
     if args.stage == "summarize":
         from . import summarize
