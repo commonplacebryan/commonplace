@@ -48,9 +48,10 @@ $V embed data/chunks/<slug>.tagged.json
 $V load data/chunks/<slug>.final.json --author "<A>" --year <Y> --domain <d>
 ```
 
-Domains in use: `sales`, `sales_management`, `leadership`, `marketing_gtm`.
-Planned: `entrepreneurship`, `product`, `self`, `decision_judgment`, `faith`
-(faith is confirmed in-scope, hard-partitioned). Tier: all `standard` so far;
+Domains in use: `sales`, `sales_management`, `leadership`, `marketing_gtm`,
+`entrepreneurship`, `product`, `self`, `decision_judgment`. `money_investing`
+opening. `faith` is hard-partitioned and READY (its own vocab) — tag faith
+books with `--vocab faith` (see Vocabulary rules). Tier: all `standard` so far;
 `canon` gets a small ranking boost — promotion is a future curation pass.
 Re-load of an existing title replaces it wholesale (safe to re-run).
 
@@ -82,11 +83,19 @@ Re-load of an existing title replaces it wholesale (safe to re-run).
 
 ## Vocabulary rules
 
-`vocab/themes.json` v2: 45 themes with `$glosses` (the tag prompt shows
-"name — gloss"; tagging rejects off-list themes). Additions are schema
+`vocab/themes.json` v2: 45 business themes with `$glosses` (the tag prompt
+shows "name — gloss"; tagging rejects off-list themes). Additions are schema
 changes — batch them, don't drift. Re-tag procedure preserving embeddings:
 re-run `tag`, merge new themes/summaries into `<slug>.final.json` by seq,
 re-run `load` (embeddings ride along; nothing re-embeds).
+
+Per-domain vocab: `tag` takes `--vocab <name>` → `vocab/themes-<name>.json`
+(default `themes` = business). `vocab/themes-faith.json` (25 themes) is the
+FAITH domain's set — LDS-centered, also fits the broader Christian titles.
+Hard-partitioned means separate vocab: never let faith and business themes
+mix in one tag call. So faith books run `tag --vocab faith`; everything else
+uses the default. When starting faith, `list_books` routing still spans all
+domains, but `search` should default to `domain=faith` for faith questions.
 
 ## Costs / limits
 
