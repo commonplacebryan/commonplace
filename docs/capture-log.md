@@ -28,10 +28,10 @@ Books 32–42 (loaded 2026-08-31 overnight batch):
 | 48 | Zero to One | Peter Thiel & Blake Masters | 2014 | entrepreneurship | 81 | loaded 2026-09-04 |
 | 49 | The Outward Mindset | The Arbinger Institute | 2016 | leadership | 72 | loaded 2026-09-04; completes Arbinger trilogy |
 | 50 | Objections | Jeb Blount | 2018 | sales | 100 | loaded 2026-09-04; full re-record after Audible silent-stop |
-| 51 | The Mom Test | Rob Fitzpatrick | 2013 | entrepreneurship | ~ | loaded 2026-09-14 |
-| 52 | $100M Offers | Alex Hormozi | 2021 | marketing_gtm | ~ | |
-| 53 | The Founder's Dilemmas | Noam Wasserman | 2012 | entrepreneurship | ~ | |
-| 54 | Empowered | Marty Cagan & Chris Jones | 2020 | product | ~ | |
+| 51 | The Mom Test | Rob Fitzpatrick | 2013 | entrepreneurship | 81 | loaded 2026-09-14 |
+| 52 | $100M Offers | Alex Hormozi | 2021 | marketing_gtm | 82 | |
+| 53 | The Founder's Dilemmas | Noam Wasserman | 2012 | entrepreneurship | 218 | |
+| 54 | Empowered | Marty Cagan & Chris Jones | 2020 | product | 205 | |
 | 55 | Think Again | Adam Grant | 2021 | decision_judgment | 126 | |
 | 56 | Transformed | Marty Cagan | 2024 | product | 172 | |
 | 57 | Blitzscaling | Reid Hoffman & Chris Yeh | 2018 | entrepreneurship | 146 | |
