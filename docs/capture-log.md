@@ -3,7 +3,7 @@
 Source of truth for loaded books is the database; this ledger adds capture
 notes and pending work. Update when books load.
 
-## Loaded (50 books, 6,169 chunks — as of 2026-09-04)
+## Loaded (60 books, 7,647 chunks — as of 2026-09-14)
 
 Books 32–42 (loaded 2026-08-31 overnight batch):
 
@@ -28,12 +28,24 @@ Books 32–42 (loaded 2026-08-31 overnight batch):
 | 48 | Zero to One | Peter Thiel & Blake Masters | 2014 | entrepreneurship | 81 | loaded 2026-09-04 |
 | 49 | The Outward Mindset | The Arbinger Institute | 2016 | leadership | 72 | loaded 2026-09-04; completes Arbinger trilogy |
 | 50 | Objections | Jeb Blount | 2018 | sales | 100 | loaded 2026-09-04; full re-record after Audible silent-stop |
+| 51 | The Mom Test | Rob Fitzpatrick | 2013 | entrepreneurship | ~ | loaded 2026-09-14 |
+| 52 | $100M Offers | Alex Hormozi | 2021 | marketing_gtm | ~ | |
+| 53 | The Founder's Dilemmas | Noam Wasserman | 2012 | entrepreneurship | ~ | |
+| 54 | Empowered | Marty Cagan & Chris Jones | 2020 | product | ~ | |
+| 55 | Think Again | Adam Grant | 2021 | decision_judgment | 126 | |
+| 56 | Transformed | Marty Cagan | 2024 | product | 172 | |
+| 57 | Blitzscaling | Reid Hoffman & Chris Yeh | 2018 | entrepreneurship | 146 | |
+| 58 | Build | Tony Fadell | 2022 | product | 188 | |
+| 59 | Competing Against Luck | Clayton M. Christensen | 2016 | product | 128 | |
+| 60 | Predictably Irrational | Dan Ariely | 2008 | decision_judgment | 132 | |
 
-**Leadership & Self-Deception**
-recorded fully silent Sep 2→3 (retired-edition license lapsed). Bryan
-removed it from his library 2026-09-04 to sort out later — PARKED, revisit
-when the edition works. The Mom Test (Fitzpatrick) capturing 2026-09-04
-evening → book 51.
+Outstanding recommendations still un-captured (as of 2026-09-14):
+**Inspired** (Cagan — the foundational product book; Bryan has Empowered
++ Transformed but not this), **The Psychology of Money** (Housel), and
+**Leadership & Self-Deception** (PARKED — retired-edition Audible issue,
+Bryan removed it from his library to sort out later). Empowered (54) and
+Transformed (56) were bonus captures, not on the rec list.
+Full owned library now at docs/owned-library.csv (809 titles).
 
 ## Previously loaded (books 1–31, as of 2026-08-31 morning)
 
