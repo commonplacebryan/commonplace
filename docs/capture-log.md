@@ -47,6 +47,14 @@ Bryan removed it from his library to sort out later). Empowered (54) and
 Transformed (56) were bonus captures, not on the rec list.
 Full owned library now at docs/owned-library.csv (809 titles).
 
+SPEED AUDIT (2026-09-15): checked recorded-duration vs real Audible runtime
+across the corpus. Only **Supercommunicators** (book 30) was recorded at
+1.5x — needs re-capture at 1x + reload. **Psychology of Money** also caught
+at 1.5x before loading (Bryan re-recording). All other loaded books
+confirmed 1x. Detection: wpm screen (flag >185/min) then runtime cross-check
+(1.5x capture = 2/3 real runtime); wpm alone false-positives on fast
+narrators (Hormozi, Mom Test all verified 1x).
+
 ## Previously loaded (books 1–31, as of 2026-08-31 morning)
 
 | # | Title | Author | Year | Domain | Chunks | Notes |
@@ -80,7 +88,7 @@ Full owned library now at docs/owned-library.csv (809 titles).
 | 27 | The JOLT Effect | Dixon & McKenna | 2022 | sales | 104 | missing first seconds (dual-narrator front matter) |
 | 28 | Influence (New & Expanded) | Robert B. Cialdini | 2021 | sales | 249 | author-read, ~21h, largest book |
 | 29 | $100M Leads | Alex Hormozi | 2023 | sales | 136 | |
-| 30 | Supercommunicators | Charles Duhigg | 2024 | leadership | 124 | |
+| 30 | Supercommunicators | Charles Duhigg | 2024 | leadership | 124 | ⚠️ RECORDED AT 1.5x (5.0h vs 7h28m real) — degraded transcription; RE-CAPTURE at 1x and reload |
 | 31 | Turn the Ship Around! | L. David Marquet | 2012 | leadership | 120 | |
 
 ## Other pending
